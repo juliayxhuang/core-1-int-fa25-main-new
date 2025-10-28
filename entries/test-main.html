@@ -1,0 +1,52 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+      <link rel="stylesheet" href="../main-styles.css">
+      <title>NYC Streetview</title>
+    </head>    
+
+    <body>
+        <div class="scroll-wrapper">
+            <div class="horizontal-scroll" id="horizontalScroll">
+            <img src="../images/more_streetview.jpg" alt="">
+            <img src="../images/random_streetview.webp" alt="">
+            <!-- duplicate set for seamless looping -->
+            <img src="../images/more_streetview.jpg" alt="">
+            <img src="../images/random_streetview.webp" alt="">
+            </div>
+        </div>
+
+        <script>
+        const horizontalScroll = document.getElementById('horizontalScroll');
+        const images = horizontalScroll.querySelectorAll('img');
+
+        function setup() {
+        // Wait until all images are fully loaded to get accurate widths
+        let loaded = 0;
+        images.forEach(img => {
+        if (img.complete) loaded++;
+        else img.onload = () => {
+            loaded++;
+            if (loaded === images.length) initScroll();
+        };
+        });
+        if (loaded === images.length) initScroll();
+        }
+
+        function initScroll() {
+        const totalWidth = horizontalScroll.scrollWidth / 2; // one full set of frames
+        const scrollHeight = totalWidth; // use the same distance for vertical scroll
+        document.body.style.height = scrollHeight + window.innerHeight + 'px';
+
+        window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const x = scrollY % totalWidth; // wraparound point
+        horizontalScroll.style.transform = `translateX(-${x}px)`;
+        });
+        }
+
+        setup();
+        </script>
+    </body>
+
+    </html>
