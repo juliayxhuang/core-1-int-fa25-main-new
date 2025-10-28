@@ -242,6 +242,17 @@ body {
   margin-top: 1.5rem;
 }
 
+.interactivedescription {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #ebebeb;
+  background-color: var(--color-secondary)
+}
+
 img {
   max-width: 100%; /* Ensures image stays within container width */
 }
