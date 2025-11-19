@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../chahalo-styles.css">
     <script src= "../order-sim.js" defer></script>
     <title>NYC Storefronts</title>
 </head>
@@ -22,10 +22,20 @@
     </section>
 
   <section class="interactivedescription">
-      <p id="output"></p> 
+      <p id="welcomeOutput"></p> 
       <p id="menu"></p> <br>
       <p id="askorder"></p> 
+      
+      <input id="userOrder" type="text" placeholder="Your order...">
+      <button onclick="getInput()">Submit</button>
+      <p id="orderOutput"></p>
+
+      <div id="progressContainer">
+        <div id="progressBar"></div>
+      </div>
+      <p id="stepMessage"></p>
 
    </section>
+
 </body>
 </html>
