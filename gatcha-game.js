@@ -1,13 +1,13 @@
-// let boxes = ["1", "2", "3", "4"];
-// let randombox = boxes[Math.floor(Math.random() * boxes.length)]; 
-
-// //like print in python
-// console.log(randombox);
-
-
-// document.getElementById("result").textContent = "You pulled: " + randombox + "!";
-
 let hironoMonsters = ["Grim Reaper", "Vampire", "Creepy Clown", "Zombie", "Killer Bunny", "Doctor Beak", "The Disembodied"]
+let monsterImages = {
+  "Grim Reaper": "../images/teso-life-images/grimreaper.png",
+  "Vampire": "../images/teso-life-images/vampire.png",
+  "Creepy Clown": "../images/teso-life-images/clown.png",
+  "Zombie": "../images/teso-life-images/zombie.png",
+  "Killer Bunny": "../images/teso-life-images/killerbunny.png",
+  "Doctor Beak": "../images/teso-life-images/doctorbeak.png",
+  "The Disembodied": "../images/teso-life-images/disembodied.png"
+};
 
 // Special rarity for "The Disembodied"
   const specialItem = "The Disembodied";
@@ -31,7 +31,25 @@ let hironoMonsters = ["Grim Reaper", "Vampire", "Creepy Clown", "Zombie", "Kille
     }
   }
 
+const box = document.getElementById("boxImage");
+
+  //On click
   document.getElementById("shakeBtn").addEventListener("click", () => {
+    // Add shake animation
+    box.classList.add("shake");
+
+    // After animation finishes, do the pull
+  setTimeout(() => {
+    box.classList.remove("shake"); // reset for next shake
+    
+    // Weighted pulls
     let pulledItem = weightedPull(hironoMonsters, weights);
     document.getElementById("shakeResult").textContent = "You pulled: " + pulledItem;
+
+    //Image pop up
+    const img = document.getElementById("pullImage");
+    img.src = monsterImages[pulledItem];
+    img.style.display = "block";
+  
+    }, 600); // match Shake animation duration
   });

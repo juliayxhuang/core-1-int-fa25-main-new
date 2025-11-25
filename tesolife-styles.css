@@ -167,15 +167,18 @@ body {
   font-size: 1.2rem;
   line-height: 1.8;
   color: #ebebeb;
-  background-color: var(--color-secondary)
+  background-color: var(--color-secondary);
+  text-align: center; 
 }
 
 img {
   max-width: 100%; /* Ensures image stays within container width */
 }
 
+/* for gatcha game */
 #shakeBtn {
-    padding: 10px 20px;
+    padding: 10px 40px;
+    border-radius: 15px;
     font-size: 18px;
     cursor: pointer;
   }
@@ -184,3 +187,26 @@ img {
     font-size: 24px;
     font-weight: bold;
   }
+
+#pullImage {
+  width: 50%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin: 20px auto 0;
+  border-radius: 10px;
+}
+
+/* shake animation for box */
+@keyframes shake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(-5px, 0) rotate(-3deg); }
+  40% { transform: translate(5px, 0) rotate(3deg); }
+  60% { transform: translate(-5px, 0) rotate(-3deg); }
+  80% { transform: translate(5px, 0) rotate(3deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.shake {
+  animation: shake 0.6s ease;
+}
