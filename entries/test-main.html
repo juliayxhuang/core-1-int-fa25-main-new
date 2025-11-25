@@ -3,50 +3,86 @@
    <head>
       <link rel="stylesheet" href="../main-styles.css">
       <title>NYC Streetview</title>
+      <script src="main-page.js" defer></script>
     </head>    
 
     <body>
-        <div class="scroll-wrapper">
-            <div class="horizontal-scroll" id="horizontalScroll">
-            <img src="../images/more_streetview.jpg" alt="">
-            <img src="../images/random_streetview.webp" alt="">
-            <!-- duplicate set for seamless looping -->
-            <img src="../images/more_streetview.jpg" alt="">
-            <img src="../images/random_streetview.webp" alt="">
-            </div>
+        <div class="street-container">
+            <!-- Filler -->
+            <section class="street-panel">
+                <img src="../images/main-page-images/souvenir1-gmaps.png" alt="">
+            </section>
+
+            <!-- Section 1 -->
+            <section class="street-panel">
+                <img src="../images/main-page-images/souvenir2-gmaps.png" alt="">
+                <a href="entry-1.html" class="overlay-text middle-right">TESOmini</a>
+            </section>
+
+            <!-- Section 2 -->
+            <section class="street-panel">
+                <img src="../images/main-page-images/malaysiabeefjerky-gmaps.png" alt="">
+                <a href="entry-9.html" class="overlay-text middle-right">Malaysia Beef Jerky</a>
+            </section>
+
+            <!-- Section 3 -->
+            <section class="street-panel">
+                <img src="../images/main-page-images/mingwong-gmaps.png" alt="">
+                <a href="entry-5.html" class="overlay-text middle-right">Ming Wong</a>
+            </section>
+
+            <!-- Section 4: Molly Tea -->
+            <section class="street-panel">
+                <img src="../images/main-page-images/connecting1-gmaps.png" alt="">
+                <a href="entry-2.html" class="overlay-text middle-right">Molly Tea</a>
+            </section>
+
+            <!-- Filler  -->
+            <section class="street-panel">
+                <img src="../images/main-page-images/bigwong-gmaps.png" alt="">
+            </section>
+
+            <!-- Section 5: 456 -->
+            <section class="street-panel">
+                <img src="../images/main-page-images/456-gmaps.png" alt="">
+                <a href="entry-3.html" class="overlay-text middle-right">Shanghai 456</a>
+            </section>
+
+            <!--  -->
+            <section class="street-panel">
+                <img src="../images/main-page-images/connecting-gmaps.png" alt="">
+            </section>
+
+            <!-- Section 6: TESOmini -->
+            <section class="street-panel">
+                <img src="../images/main-page-images/tesomini-gmaps.png" alt="">
+                <a href="entry-1.html" class="overlay-text middle-right">TESOmini</a>
+            </section>
+
+            <!-- Section 7: Keki Modern Cakes -->
+            <section class="street-panel">
+                <img src="../images/main-page-images/keki-gmaps.png" alt="">
+                <a href="entry-8.html" class="overlay-text bottom-left">Keki</a>
+            </section>
+
+            <!-- Section 8: Chahalo -->
+            <section class="street-panel">
+                <img src="../images/main-page-images/keki-gmaps.png" alt="">
+                <a href="entry-8.html" class="overlay-text bottom-left">Chahalo</a>
+            </section>
+
+            <!-- Section 9: senti senti -->
+            <section class="street-panel">
+                <img src="../images/main-page-images/sentisenti-gmaps.png" alt="">
+                <a href="entry-4.html" class="overlay-text top-right">senti senti</a>
+            </section>
+
+            <!-- Section 10: Fay Da Bakery -->
+            <section class="street-panel">
+                <img src="../images/main-page-images/fayda-gmaps.png" alt="">
+                <a href="entry-7.html" class="overlay-text bottom-left">Fay Da Bakery</a>
+            </section>
         </div>
 
-        <script>
-        const horizontalScroll = document.getElementById('horizontalScroll');
-        const images = horizontalScroll.querySelectorAll('img');
-
-        function setup() {
-        // Wait until all images are fully loaded to get accurate widths
-        let loaded = 0;
-        images.forEach(img => {
-        if (img.complete) loaded++;
-        else img.onload = () => {
-            loaded++;
-            if (loaded === images.length) initScroll();
-        };
-        });
-        if (loaded === images.length) initScroll();
-        }
-
-        function initScroll() {
-        const totalWidth = horizontalScroll.scrollWidth / 2; // one full set of frames
-        const scrollHeight = totalWidth; // use the same distance for vertical scroll
-        document.body.style.height = scrollHeight + window.innerHeight + 'px';
-
-        window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        const x = scrollY % totalWidth; // wraparound point
-        horizontalScroll.style.transform = `translateX(-${x}px)`;
-        });
-        }
-
-        setup();
-        </script>
     </body>
-
-    </html>
+</html>

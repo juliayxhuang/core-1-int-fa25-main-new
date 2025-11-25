@@ -34,35 +34,63 @@
 /* Remove default page spacing */
 body {
   margin: 0;
-  background: #111;        /* dark background (optional) */
-  overflow-x: hidden;       /* prevent horizontal scrollbar */
+  /* background: #111;        dark background (optional) */
+  overflow-x: hidden;
 }
 
-/* Sticky wrapper keeps the horizontal scroll fixed during vertical scroll */
-.scroll-wrapper {
-  position: sticky;
-  top: 0;
-  height: 100vh;           /* fills the entire viewport */
-  overflow: hidden;         /* hides overflow to keep visuals clean */
-}
-
-/* The horizontally moving strip */
-.horizontal-scroll {
+/* Main horizontal container */
+.street-container {
   display: flex;
   height: 100vh;
-  will-change: transform;   /* improves performance for animation */
-  transition: transform 0.05s linear; /* smooths small jumps */
+  width: 100vw;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Each image */
-.horizontal-scroll img {
-  height: 100vh;            /* make images fill viewport height */
-  width: auto;              /* preserve aspect ratio */
-  flex-shrink: 0;           /* prevent images from shrinking */
-  object-fit: cover;        /* optional: crop nicely if aspect ratios differ */
+/* Individual section/panel */
+.street-panel {
+  position: relative;
+  min-width: 100vw;    /* Each image fills the screen */
+  height: 100vh;
+  flex-shrink: 0;
 }
 
-/* Optional: hide scrollbar (for cleaner presentation) */
-::-webkit-scrollbar {
-  display: none;
+.street-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* Preserves aspect ratio while filling */
+}
+
+/* The clickable text overlay */
+.overlay-text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: clamp(24px, 5vw, 60px); /*responsive text size */
+  max-width: 60vw;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.top-right {
+  top: 10%;
+  right: 40%;
+}
+
+.middle-right {
+  top: 40%;
+  right: 5%;
+}
+
+.bottom-left {
+  bottom: 10%;
+  left: 8%;
+}
+
+.overlay-text:hover {
+  color: rgb(23, 79, 174);
 }
