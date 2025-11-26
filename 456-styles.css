@@ -54,56 +54,65 @@ section {
 
 
 /* === MEDIUM STYLE LAYOUT === */
+
 main.medium-style {
-  display: block;
-  padding: 3rem 12rem;
-  min-block-size: 400px;
+  /* Center the text column */
+  max-width: 700px;
+  min-width: 320px;                    /* prevents text from becoming too narrow */
+  margin-inline: auto;
+
+  /* Responsive padding */
+  padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 8vw, 6rem);
+
+  color: var(--gray-50);
+  line-height: 1.75;
+  margin-bottom: clamp(12rem, 25vw, 30rem);
 }
 
+/* Background applies only when medium-style is present */
+body:has(main.medium-style) {
+  background: #000;
+}
+
+/* Section spacing */
 main.medium-style section {
-  padding: 0;
   margin-bottom: 3rem;
 }
 
-body:has(main.medium-style) {
-  background-color: rgb(0, 0, 0);
-  line-height: 1.8;
-  color: var(--gray-900);
-}
-
+/* Text elements */
 main.medium-style p {
-  line-height: 1.6;
-  color: var(--gray-50);
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: clamp(1rem, 1.2vw + .5rem, 1.25rem);
   margin-bottom: 1.5rem;
-  font-size: 1.125rem;
+  color: rgb(189, 225, 255);
 }
 
 main.medium-style h1 {
-  font-size: 2.75rem;
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
+  font-size: clamp(2rem, 4vw + .5rem, 3rem);
+  margin: 2rem 0 1.5rem;
+  color: rgb(189, 225, 255);
 }
 
 .number-block {
-  /* position: relative; */
   width: 100%;
-  /* padding: 3 rem 0;  */
   justify-content: center;
 }
 
 .number-wrap {
   position: relative;
   display: inline-block;
+  width: 100%;
+  text-align: center;
 }
 
 .big-number {
   font-family: good-times, sans-serif;
   font-weight: bold;
-  font-size: clamp(120px, 35vw, 800px); 
-  color: rgb(237, 57, 12);
-  -webkit-text-stroke: 3px rgb(255, 255, 255); /* optional real stroke */
+  font-size: clamp(120px, 30vw, 700px); 
+  color: rgb(126,2,6);
+  /* -webkit-text-stroke: 4px rgb(255, 255, 255); optional real stroke */
   text-shadow: 3px 3px 8px rgba(0,0,0,0.5);
-  user-select: none;   
+  user-select: none;  
 }
 
 .top-text {
@@ -119,7 +128,7 @@ main.medium-style h1 {
 
   font-family: "Long Cang", cursive;
   font-size: clamp(100px, 15vw, 400px);
-  color: rgb(181, 0, 0);
+  color: hsl(207, 100%, 29%);
   font-weight: 700;
   
   white-space: nowrap;
@@ -133,6 +142,25 @@ main.medium-style h1 {
   line-height: 1.5;
 }
 
+.bottom-right-text {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  
+  background-color: white;
+  color: rgb(7, 77, 216);
+
+  padding: 0rem 0.1rem;
+  border-radius: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+  font-weight: 600;
+  white-space: nowrap;
+  user-select: none;
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.2);
+}
+
 .home-button {
   position: fixed;
   top: 16px;
@@ -142,7 +170,7 @@ main.medium-style h1 {
   padding: 0;
   margin: 0;
 
-  color: rgb(213, 15, 15);
+  color: rgb(144, 1, 6);
   font-family: "nothing you could do", sans-serif;
   font-style: normal;
   font-size: clamp(18pt, 3vw, 24pt);
@@ -162,117 +190,135 @@ main.medium-style h1 {
   transform: scale(0.8);
 }
 
+/* CIRCLE IMAGE ROTATING */
+
 .circle-container {
   position: relative;
-  width: 60vw;
-  height: 60vw;
-  max-width: 400px;
-  max-height: 400px;
+  width: min(60vw, 400px);
+  height: min(60vw, 400px);
   margin: 3rem auto;
-  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  animation: rotate 40s linear infinite;
-  transition: animation-play-state 0.3s ease;
+  margin-bottom: clamp(12rem, 25vw, 30rem);
 }
 
-.circle-container:hover {
+.circle-rotator {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: rotate 90s linear infinite;
+  transform-origin: center center;
+}
+
+/* Pause animation when hovering over any image */
+.circle-rotator:has(.image-wrapper:hover) {
   animation-play-state: paused;
 }
 
-.circle-container img {
+.image-wrapper {
   position: absolute;
-  width: 10vw;
-  height: 10vw;
-  max-width: 80px;
-  max-height: 80px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: none;
-  box-shadow: 0 0 6px rgba(0,0,0,0.3);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  white-space: nowrap;
-}
-
-.circle-container img:hover {
-  transform:
-    rotate(var(--angle))
-    translate(25vw)
-    rotate(calc(-1 * var(--angle)))
-    scale(1.2);
-  z-index: 10;
-}
-
-/* Position images evenly around the circle */
-
-.circle-container img:nth-child(1) {
-  --angle: 0deg;
-}
-.circle-container img:nth-child(2) {
-  --angle: 60deg;
-}
-.circle-container img:nth-child(3) {
-  --angle: 120deg;
-}
-.circle-container img:nth-child(4) {
-  --angle: 180deg;
-}
-.circle-container img:nth-child(5) {
-  --angle: 240deg;
-}
-.circle-container img:nth-child(6) {
-  --angle: 300deg;
-}
-
-.circle-container img {
   top: 50%;
   left: 50%;
+  
+  /* Position images around the circle and counter-rotate to keep upright */
   transform:
+    translate(-50%, -50%)
     rotate(var(--angle))
-    translate(25vw)
+    translate(clamp(120px, 35vw, 280px))
     rotate(calc(-1 * var(--angle)));
 }
+
+.image-wrapper img {
+  display: block;
+  width: clamp(70px, 12vw, 120px);
+  height: clamp(70px, 12vw, 120px);
+  
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-wrapper:hover img {
+  transform: scale(1.2);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+.image-text {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  z-index: 20;
+}
+
+.image-wrapper:hover .image-text {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Position wrappers evenly around the circle */
+.image-wrapper:nth-child(1) { --angle: 0deg; }
+.image-wrapper:nth-child(2) { --angle: 60deg; }
+.image-wrapper:nth-child(3) { --angle: 120deg; }
+.image-wrapper:nth-child(4) { --angle: 180deg; }
+.image-wrapper:nth-child(5) { --angle: 240deg; }
+.image-wrapper:nth-child(6) { --angle: 300deg; }
 
 @keyframes rotate {
   from {
     transform: rotate(0deg);
-  } to {
+  }
+  to {
     transform: rotate(360deg);
   }
 }
 
-/* Optional: tweak for smaller screens */
-
-@media (max-width: 400px) {
+/* Mobile optimization */
+@media (max-width: 500px) {
   .circle-container {
-    width: 90vw;
-    height: 90vw;
+    width: 80vw;
+    height: 80vw;
+    max-width: 400px;
+    max-height: 400px;
   }
-  .circle-container img {
-     transform-origin: center center;
-    position: absolute;
-    width: 10vw;
-    height: 10vw;
-    max-width: 80px;
-    max-height: 80px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: none;
-    box-shadow: 0 0 6px rgba(0,0,0,0.3);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    white-space: nowrap;
-
-    top: 50%;
-    left: 50%;
+  
+  .image-wrapper {
     transform:
-    rotate(var(--angle))
-    translate(25vw)
-    rotate(calc(-1 * var(--angle)));
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translate(clamp(100px, 30vw, 200px))
+      rotate(calc(-1 * var(--angle)));
   }
-
+  
+  .image-wrapper img {
+    width: clamp(60px, 16vw, 90px);
+    height: clamp(60px, 16vw, 90px);
+  }
+  
+  .image-wrapper:hover img {
+    transform: scale(1.15);
+  }
+  
+  .image-text {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
 }
-
