@@ -1,0 +1,234 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Long+Cang&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+
+:root {
+      --color-primary: rgb(192,207,180);      
+      --color-secondary: rgb(42,118,211);    
+      --color-accent: #DAA520;       
+      --color-tertiary: rgb(0, 88, 197);
+      --color-highlight: #CD853F;    
+  
+      --gray-50: #F9FAFB;
+      --gray-100: #F3F4F6;
+      --gray-200: #E5E7EB;
+      --gray-300: #D1D5DB;
+      --gray-400: #9CA3AF;
+      --gray-500: #6B7280;
+      --gray-600: #4B5563;
+      --gray-700: #374151;
+      --gray-800: #1F2937;
+      --gray-900: #111827;
+      
+      --breakpoint-sm: 640px;
+      --breakpoint-md: 768px;
+      --breakpoint-lg: 1024px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+      body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--gray-800);
+      background-color: rgb(192,207,180);
+    }
+
+  /* DEFAULT LAYOUT */
+main {
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 80vw;
+}
+
+section {
+  background-color: rgb(192,207,180);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* === MEDIUM STYLE LAYOUT === */
+
+main.medium-style {
+  /* Center the text column */
+  max-width: 700px;
+  min-width: 320px;                    /* prevents text from becoming too narrow */
+  margin-inline: auto;
+
+  /* Responsive padding */
+  padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 8vw, 6rem);
+
+  color: var(--gray-50);
+  line-height: 1.75;
+  margin-bottom: clamp(12rem, 25vw, 30rem);
+}
+
+/* Background applies only when medium-style is present */
+body:has(main.medium-style) {
+  background: rgb(192,207,180);
+}
+
+/* Section spacing */
+main.medium-style section {
+  margin-bottom: 3rem;
+}
+
+/* Text elements */
+main.medium-style p {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: clamp(1rem, 1.2vw + .5rem, 1.25rem);
+  margin-bottom: 1.5rem;
+  color: rgb(42,118,2115);
+}
+
+main.medium-style h1 {
+  font-size: clamp(2rem, 4vw + .5rem, 3rem);
+  margin: 2rem 0 1.5rem;
+  color: rgb(42,118,211);
+}
+
+.home-button {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  color: rgb(42,118,211);
+  font-family: "nothing you could do", sans-serif;
+  font-style: normal;
+  font-size: clamp(18pt, 3vw, 24pt);
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 1000; /* make sure it’s on top */
+  transition: opacity 0.3s ease, transform 0.3s ease-in-out;
+  transform-origin: top left; 
+}
+
+.home-button:hover {
+  opacity: 0.7;
+}
+
+.home-button.scrolled {
+  /* font-size: clamp(8pt, 2vw, 18pt); */
+  transform: scale(0.8);
+}
+
+.bottom-right-text {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  
+  background-color: none;
+  color: var(--color-secondary);
+
+  padding: 0rem 6rem;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(1rem, 2vw, 5rem);
+  font-weight: 600;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.large-title-section {
+  display: flex;
+  flex-direction: column; /* vertical stack */
+  justify-content: center;
+  align-items: center;    /* center horizontally */
+  height: 40vh;
+  padding: 2rem 1rem;
+  text-align: center;
+  position: relative;
+
+  margin-top: clamp(10rem, 20vw, 30rem);
+  margin-bottom: clamp(10rem, 20vw, 30rem);
+}
+
+.large-title {
+  font-family: "alize", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  color: rgb(42,118,211);
+  margin: 0;
+  user-select: none;
+  font-size: clamp(8rem, 16vw, 20rem);
+  line-height: 1.1;
+  max-width: 90vw;
+}
+
+/* Just add some vertical spacing */
+.large-title.continuation {
+  margin-top: 0;
+  line-height: 0.5;
+  margin-bottom: clamp(8rem, 16vw, 24rem);
+}
+
+/* Responsive tweaks */
+@media (max-width: 400px) {
+  .large-title-section {
+    height: 30vh;
+    padding: 1rem 0.5rem;
+  }
+
+  .large-title {
+    font-size: clamp(2rem, 7vw, 4rem);
+  }
+}
+
+/* PHOTO GRID LAYOUT */
+main.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.2rem;
+  max-width: 1200px;
+  margin: 0 auto; /* center grid container */
+  margin-bottom: clamp(12rem, 20vw, 30rem);
+}
+
+/* Each photo item with rounded corners and padding */
+main.photo-grid .photo-item {
+  background-color: rgb(232,221,152);
+  padding: 1rem;
+  text-align: center;
+  border-radius: 12px; /* rounded corners */
+  overflow: hidden;    /* clip child elements inside rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* subtle shadow for depth */
+}
+
+/* Images fill container, keep aspect ratio, with rounded corners */
+main.photo-grid .photo-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border-radius: 12px; /* match parent rounded corners */
+  display: block;      /* removes bottom whitespace */
+}
+
+/* Photo name styling */
+main.photo-grid .photo-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-secondary);
+  margin-bottom: 0;
+  font-size: 1.125rem;
+}
+
+/* Photo caption styling */
+main.photo-grid .photo-caption {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--gray-700);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
