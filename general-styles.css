@@ -1,0 +1,65 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bellefair&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Gilda+Display&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Long+Cang&family=Rokkitt:ital,wght@0,100..900;1,100..900&family=Zhi+Mang+Xing&display=swap');
+
+/* Grid Section Styles */
+
+.grid-section {
+  display: grid;
+  grid-template-columns: 3fr 4fr; /* Text takes 2 parts, image takes 3 parts */
+  background-color: var(--primary-color);
+  align-items: center;
+}
+
+.text-content {
+  color: var(--secondary-color);
+  padding: 3rem 1rem 3rem 5rem; /* Creates equal spacing */
+}
+
+.text-content h1 {
+  font-family: var(--font-header);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  color: var(--secondary-color);
+}
+
+.text-content p {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--secondary-color);
+}
+
+.image-content {
+  padding: 3rem 3rem; /* Same padding = equal spacing on all sides */
+}
+
+.image-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Mobile: Stack text below image */
+@media (max-width: 768px) {
+  .grid-section {
+    grid-template-columns: 1fr; /* Single column layout */
+  }
+  
+  .text-content {
+    order: 2; /* Moves text below image */
+    padding: 2rem 1rem;
+  }
+  
+  .image-content {
+    order: 1; /* Keeps image on top */
+    padding: 2rem 1rem;
+  }
+  
+  .text-content h1 {
+    margin-bottom: 0.75rem;
+  }
+}

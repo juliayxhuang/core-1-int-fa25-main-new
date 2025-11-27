@@ -3,21 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../mollytea-styles.css">
+    <link rel="stylesheet" href="../homebutton.css">
+    <link rel="stylesheet" href="../general-styles.css">
+
+
+    <script src="../js/mollytea.js" defer></script>
     <title>NYC Storefronts</title>
-    <section class="full-width">
-        <img src="../images/molltea.jpg" alt="Molly Tea" class="full-width-image">
-        <div class="full-width-overlay"></div>
-        <div class="full-width-content">
-            <h1>Welcome to Molly Tea!</h1>
-            <p>63 Mott St</p>
-        </div>
+    <section class="big-logo">
+        <img src="../images/mollytea-images/mollytealogo.png" alt="Molly Tea Logo" />
     </section>
+
 </head>
 <body>
-    <section>
-           <p>Molly Tea is a Chinese tea chain brand that offers a variety of drinks through different tea flavors and toppings. </p> 
-    </section> 
-    <img src="../images/image-3.png"/>
+    <button id="homeButton" class="home-button">Mott St</button>
+    <section class="grid-section">
+        <div class="text-content">
+            <h1>Welcome to Molly Tea!</h1>
+            <p>Your paragraph text goes here. This section takes up 2/5 of the grid width on larger screens and stacks below the image on mobile.</p>
+        </div>
+
+        <div class="image-content">
+            <img src="../images/mollytea-images/mollyteagraphic.png" alt="Molly Tea Graphic">
+        </div>
+    </section>
+
+    <section class="blur-circle-section">
+
+        <div class="blur-circle">
+
+            <!-- Center image -->
+            <div class="center-item">
+                <img src="../images/mollytea-images/mollytealogo.png" alt="Molly Tea">
+            </div>
+
+            <div class="blur-item" style="--angle: 0deg;">
+                <img src="../images/mollytea-images/black-candle.png" alt="Black Scented Candle" />
+                <div class="hover-text">Black Scented Candle</div>
+            </div>
+            <div class="blur-item" style="--angle: 72deg;">
+                <img src="../images/mollytea-images/jasminetea.png" alt="Jasmine Green Tea" />
+                <div class="hover-text">Jasmine Green Tea</div>
+            </div>
+            <div class="blur-item" style="--angle: 144deg;">
+                <img src="../images/mollytea-images/peach-satchet.png" alt="Peach Scented Satchet" />
+                <div class="hover-text">Peach Scented Satchet</div>
+            </div>
+            <div class="blur-item" style="--angle: 216deg;">
+                <img src="../images/mollytea-images/xiaolong-candle.png" alt="Scented Xiao Long Bao Candle" />
+                <div class="hover-text">Scented Xiao Long Bao Candle</div>
+            </div>
+            <div class="blur-item" style="--angle: 288deg;">
+                <img src="../images/mollytea-images/pink-satchet.png" alt="Original Pink Satchet" />
+                <div class="hover-text">Original Pink Satchet</div>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>
