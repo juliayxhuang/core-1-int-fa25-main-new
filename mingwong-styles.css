@@ -1,0 +1,284 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Long+Cang&family=Zhi+Mang+Xing&display=swap');
+
+:root {
+      --color-primary: rgb(250,223,100);      
+      --color-secondary: rgb(144,44,23);    
+      --color-accent: #DAA520;       
+      --color-tertiary: rgb(0, 88, 197);
+      --color-highlight: #CD853F;    
+  
+      --gray-50: #F9FAFB;
+      --gray-100: #F3F4F6;
+      --gray-200: #E5E7EB;
+      --gray-300: #D1D5DB;
+      --gray-400: #9CA3AF;
+      --gray-500: #6B7280;
+      --gray-600: #4B5563;
+      --gray-700: #374151;
+      --gray-800: #1F2937;
+      --gray-900: #111827;
+      
+      --breakpoint-sm: 640px;
+      --breakpoint-md: 768px;
+      --breakpoint-lg: 1024px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+      body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--gray-800);
+      background-color: var(--color-primary);
+    }
+
+  /* DEFAULT LAYOUT */
+main {
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 80vw;
+}
+
+section {
+  background-color: var(--color-primary);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* === MEDIUM STYLE LAYOUT === */
+
+main.medium-style {
+  /* Center the text column */
+  max-width: 700px;
+  min-width: 320px;                    /* prevents text from becoming too narrow */
+  margin-inline: auto;
+
+  /* Responsive padding */
+  padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 8vw, 6rem);
+
+  color: var(--gray-50);
+  line-height: 1.75;
+  margin-bottom: clamp(12rem, 25vw, 30rem);
+}
+
+/* Background applies only when medium-style is present */
+body:has(main.medium-style) {
+  background: var(--color-primary);
+}
+
+/* Section spacing */
+main.medium-style section {
+  margin-bottom: 3rem;
+}
+
+/* Text elements */
+main.medium-style p {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: clamp(1rem, 1.2vw + .5rem, 1.25rem);
+  margin-bottom: 1.5rem;
+  color: rgb(42,118,2115);
+}
+
+main.medium-style h1 {
+  font-size: clamp(2rem, 4vw + .5rem, 3rem);
+  margin: 2rem 0 1.5rem;
+  color: var(--color-secondary);
+}
+
+.home-button {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  color: var(--color-secondary);
+  font-family: "nothing you could do", sans-serif;
+  font-style: normal;
+  font-size: clamp(18pt, 3vw, 24pt);
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 1000; /* make sure it’s on top */
+  transition: opacity 0.3s ease, transform 0.3s ease-in-out;
+  transform-origin: top left; 
+}
+
+.home-button:hover {
+  opacity: 0.7;
+}
+
+.home-button.scrolled {
+  /* font-size: clamp(8pt, 2vw, 18pt); */
+  transform: scale(0.8);
+}
+
+.bottom-right-text {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  
+  background-color: none;
+  color: var(--color-secondary);
+
+  padding: 0rem 6rem;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(1rem, 2vw, 5rem);
+  font-weight: 600;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.two-line-title {
+  text-align: center;
+  margin: clamp(6rem, 12vw, 14rem) 1rem;
+  user-select: none;
+  cursor: default;
+}
+
+.two-line-title .line1,
+.two-line-title .line2 {
+  font-family: "Long Cang", cursive;
+  font-weight: 500;
+  color: var(--color-secondary);
+  margin: 0;
+  font-size: clamp(10rem, 40vw, 36rem);
+  line-height: 0.6;
+  transition: color 0.3s ease;
+}
+
+/* Make each line a block to be on its own line */
+.two-line-title .line1 {
+  margin-left: -8%;
+}
+
+/* Second line indented slightly to the right */
+.two-line-title .line2 {
+  display: block;
+  margin-left: 12%;
+}
+
+/* Separate hover effects */
+.two-line-title .line1:hover {
+  color: rgb(10, 70, 180);
+}
+
+.two-line-title .line2:hover {
+  color: rgb(180, 30, 30);
+}
+
+/* Responsive tweaks */
+@media (max-width: 400px) {
+  .two-line-title {
+    margin: clamp(3rem, 8vw, 10rem) 0.5rem;
+  }
+
+  .two-line-title .line1,
+  .two-line-title .line2 {
+    font-size: clamp(2rem, 7vw, 4rem);
+  }
+  
+  .two-line-title .line1 {
+    margin-left: -5%;
+  }
+  
+  .two-line-title .line2 {
+    margin-left: 8%;
+  }
+}
+
+.secondary-section {
+  background-color: var(--color-secondary);
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  padding: 2rem 1.5rem 3rem;
+  margin-top: clamp(3rem, 6vw, 8rem);
+  color: white;
+
+  /* Make the section full width */
+  width: 100vw;          /* full viewport width */
+  position: relative;    /* for the border radius to work properly */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box; /* ensure padding doesn't cause overflow */
+
+  min-height: 600px; /* or adjust to whatever height you want */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically center content if you want */
+}
+
+/* Wrap inner content to limit width for readability */
+.secondary-section .content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Title above images, left aligned */
+.secondary-section .section-title {
+  font-family: var(--font-heading, sans-serif);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: 1.25rem;
+  text-align: left;
+  user-select: none;
+}
+
+/* Three column grid for images */
+.secondary-section .image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+/* Images styling */
+.secondary-section .image-grid img {
+  width: 100%;
+  border-radius: 1rem;
+  object-fit: cover;
+  height: 200px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* Optional: subtle hover scale effect on images */
+.secondary-section .image-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .secondary-section {
+    padding: 1.5rem 1rem 2rem;
+  }
+  
+  .secondary-section .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .secondary-section .image-grid img {
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .secondary-section .image-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .secondary-section .image-grid img {
+    height: 150px;
+  }
+}
