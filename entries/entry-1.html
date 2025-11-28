@@ -4,39 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../tesolife-styles.css">
-    <script src= "../gatcha-game.js" defer></script>
-    <title>NYC Storefronts</title>
-    <section class="full-width">
-        <img src="../images/teso-entrance.jpg" alt="TESOmini" class="full-width-image">
-        <div class="full-width-overlay"></div>
-        <div class="full-width-content">
-            <h1>Welcome to TESOmini!</h1>
-            <p>75 Mott St</p>
-        </div>
-    </section>
-</head>
-<body>
-    <main class="three-column">
-         <section>
-            <img src="../images/image-1.jpg"/> <br>
-                <p>TESOmini, the smaller store of TESO LIFE, a Japanese department store, carries all sorts of goods, from delicious snacks to your favorite collectibles!</p> 
-         </section>
-         <section>
-            <img src="../images/image-2.jpg"/>
-                <p>TESOmini, the smaller store of TESO LIFE, a Japanese department store, carries all sorts of goods, from delicious snacks to your favorite collectibles!</p> 
-         </section>
-         <section>
-            <img src="../images/image-1.jpg"/> <br>
-                <p>TESOmini, the smaller store of TESO LIFE, a Japanese department store, carries all sorts of goods, from delicious snacks to your favorite collectibles!</p> 
-         </section>
-    </main>
+    <link rel="stylesheet" href="../homebutton.css">
+    <link rel="stylesheet" href="../gatcha-styles.css">
+    <link rel="stylesheet" href="https://use.typekit.net/xtb5bfr.css">
+    <script src= "../js/gatcha-game.js" defer></script>
+    <script src="../js/tesomini.js" defer></script>
+    <script src="../js/homebutton.js" defer></script>
 
+    <title>TESOmini</title>
     <section class="interactivedescription">
-        <img id="boxImage" src="../images/teso-life-images/hirono-box.png"/>
-        <button id="shakeBtn">SHAKE</button>
+        <!-- Two lines of large text -->
+        <div class="scroll-text">
+            <div>Welcome to</div>
+            <div>TESOmini!</div>
+        </div>
+        
+        <!-- Box image container -->
+        <div class="box-container">
+            <img id="boxImage" src="../images/teso-life-images/hirono-box.png"/>
+            <button id="shakeBtn">SHAKE</button>
+        </div>
+        
         <img id="pullImage" style="margin-top:20px; display:none;" />
         <div id="shakeResult"></div>
     </section>
+</head>
+
+<body>
+    <button id="homeButton" class="home-button">Mott St</button>
     
 </body>
 </html>

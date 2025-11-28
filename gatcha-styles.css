@@ -1,0 +1,121 @@
+.interactivedescription {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 1rem;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+  text-align: center;
+  position: relative;
+}
+
+/* Large text lines above the image */
+.scroll-text {
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: bold;
+  line-height: 0.6;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  color: var(--color-secondary);
+  
+  /* Start position - visible */
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  
+  /* Fade out as you scroll */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* First line - slightly left */
+.scroll-text div:first-child {
+    font-family: "sloop-script-two", sans-serif;
+    font-size: clamp(4rem, 10vw, 8rem);
+    /* color: rgb(101,25,58); */
+  text-align: center;
+  transform: translateX(-10%);
+}
+
+/* Second line - slightly right */
+.scroll-text div:last-child {
+  text-align: center;
+  transform: translateX(10%);
+  -webkit-text-stroke: 2px white;
+}
+
+/* Container for the box image */
+.box-container {
+  position: sticky;
+  top: 20vh; /* Image stays on screen longer than text */
+  z-index: 2;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Gatcha game styles */
+#shakeBtn {
+  padding: 10px 40px;
+  border-radius: 15px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#shakeResult {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#pullImage {
+  width: 50%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin: 20px auto 0;
+  border-radius: 10px;
+}
+
+/* Shake animation for box */
+@keyframes shake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(-5px, 0) rotate(-3deg); }
+  40% { transform: translate(5px, 0) rotate(3deg); }
+  60% { transform: translate(-5px, 0) rotate(-3deg); }
+  80% { transform: translate(5px, 0) rotate(3deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.shake {
+  animation: shake 0.6s ease;
+}
+
+/* Scroll animation states - add these classes with JavaScript */
+.scroll-text.scrolled-out {
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+.box-container.scrolled-out {
+  opacity: 0;
+  transform: translateY(-100px);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .scroll-text {
+    margin-top: 2rem;
+  }
+  
+  .scroll-text div:first-child {
+    transform: translateX(-5%);
+  }
+  
+  .scroll-text div:last-child {
+    transform: translateX(5%);
+  }
+}
