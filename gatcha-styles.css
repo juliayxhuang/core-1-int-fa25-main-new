@@ -12,9 +12,13 @@ img {
 
 /* Gatcha game styles */
 #shakeBtn {
-  padding: 10px 40px;
+  padding: 0.8rem 1.5rem;
   border-radius: 15px;
+  border: none;
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
   font-size: 18px;
+  font-family: "Inter", sans-serif;
   cursor: pointer;
 }
 

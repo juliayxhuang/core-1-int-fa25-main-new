@@ -106,7 +106,7 @@ main {
 .scroll-text div:last-child {
   text-align: center;
   transform: translateX(10%);
-  -webkit-text-stroke: 2px white;
+  /* -webkit-text-stroke: 2px white; */
 }
 
 .scroll-text .hover-text {
@@ -128,4 +128,58 @@ main {
 
 .scroll-text:hover .hover-text {
   opacity: 1;
+}
+
+/*MAIN BODY COPY FORMAT*/
+main {
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 80vw;
+}
+
+section {
+  background-color: var(--color-primary);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+
+/* === MEDIUM STYLE LAYOUT === */
+
+main.medium-style {
+  /* Center the text column */
+  max-width: 700px;
+  min-width: 320px;                    /* prevents text from becoming too narrow */
+  margin-inline: auto;
+
+  /* Responsive padding */
+  padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 8vw, 6rem);
+
+  color: var(--color-primary);
+  line-height: 1.75;
+  margin-bottom: clamp(12rem, 25vw, 30rem);
+}
+
+/* Background applies only when medium-style is present */
+body:has(main.medium-style) {
+  background: var(--color-primary);
+}
+
+/* Section spacing */
+main.medium-style section {
+  margin-bottom: 3rem;
+}
+
+/* Text elements */
+main.medium-style p {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: clamp(1rem, 1.2vw + .5rem, 1.25rem);
+  margin-bottom: 1.5rem;
+  color: var(--color-secondary);
+}
+
+main.medium-style h1 {
+  font-size: clamp(2rem, 4vw + .5rem, 3rem);
+  margin: 2rem 0 1.5rem;
+  color: var(--color-secondary);
 }
