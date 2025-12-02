@@ -1,56 +1,106 @@
 <!DOCTYPE html>
  <html>
    <head>
-      <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="../main-styles.css">
+      <link rel="stylesheet" href="https://use.typekit.net/sdw0ufq.css">
       <title>NYC Streetview</title>
-   </head>
-   <body>
-      <main class="medium-style">
-        <section>
-          <h1>Mott St</h1>
-            <p>Julia Huang</p>
-          <ul>
-            <li>
-              <a href="entries/entry-1.html">TESOmini</a> <br>
-            </li>
-            <li>
-              <a href="entries/entry-2.html">Molly Tea</a> <br>
-            </li>
-            <li>
-              <a href="entries/entry-3.html">456 Shanghai</a>
-            <li>
-              <a href="entries/entry-4.html">senti senti</a>
-            </li>
-            <li>
-              <a href="entries/entry-5.html">Ming Wong</a>
-            </li>
-            <li>
-              <a href="entries/entry-6.html">Chahalo</a>
-            </li>
-            <li>
-              <a href="entries/entry-7.html">Fay Da Bakery</a>
-            </li>
-            <li>
-              <a href="entries/entry-8.html">Keki Modern Cakes</a>
-            </li>
-            <li>
-              <a href="entries/entry-9.html">9</a>
-            </li>
-            <li>
-              <a href="entries/entry-10.html">10</a>
-            </li>
-            <li>
-              <a href="entries/test-main.html">test for main page</a>
-            </li>
-          </ul>
-        </section>
+      <script src="main-page.js" defer></script>
+    </head>    
 
-        <section>
-          <a href="p5js/ex-1/">example 1</a>
-          <a href="p5js/ex-2/">example 2</a>
-          <a href="p5js/ex-3/">example 3</a>
+    <body>
+        <div class="street-container">
+            <!-- Opening Image -->
+            <section class="street-panel">
+                <img src="../images/mott st/mott1.2.png" alt="Title Page Image">
+            </section>
 
-        </section>
-      </main>
-   </body>
- </html>
+            <!-- Filler Image-->
+            <section class="street-panel">
+                <img src="../images/mott st/mott3.png" alt="NYC Souvenir Shop Image">
+            </section>
+
+            <!-- Entry 1, Souvenir Shop -->
+            <section class="street-panel">
+                <img src="../images/mott st/mott2-souvenir.png" alt="Streetview Image">
+                <a href="entry-10.html" class="overlay-text bottom-middle">Souvenir Shop</a>
+            </section>
+
+            <!-- Entry 2, Malay Beef Jerky -->
+            <section class="street-panel">
+                <img src="../images/mott st/mott4-souvenir.png" alt="Malaysia Beef Jerky Image">
+                <a href="entry-9.html" class="overlay-text middle-left">Malaysia Beef Jerky</a>
+            </section>
+
+            <!-- Entry 3, Ming Wong -->
+            <section class="street-panel">
+                <img src="../images/mott st/mott5-mingwong.png" alt="Ming Wong Image">
+                <a href="entry-5.html" class="overlay-text bottom-left">Ming Wong</a>
+            </section>
+
+            <!-- Entry 4: Molly Tea -->
+            <section class="street-panel">
+                <img src="../images/mott st/mott6-mollytea.png" alt="Molly Tea" Image>
+                <a href="entry-2.html" class="overlay-text middle-left-2">Molly Tea</a>
+            </section>
+
+            <!-- Filler Image -->
+            <section class="street-panel">
+                <img src="../images/mott st/mott7.png" alt="Streetview Image">
+            </section>
+
+            <!-- Filler Image -->
+            <section class="street-panel">
+                <img src="../images/mott st/mott8-456.png" alt="Shanghai 456 Image">
+            </section>
+
+             <!-- Entry 5, 456 -->
+            <section class="street-panel">
+                <img src="../images/mott st/mott9.png" alt="Streetview Image">
+                <a href="entry-3.html" class="overlay-text bottom-left-2">Shanghai 456</a>
+            </section>
+
+            <!-- Filler Image -->
+            <section class="street-panel">
+                <img src="../images/mott st/mott10-456.png" alt="Streetview Image">
+            </section>
+
+            <!-- Entry 6, TESOmini -->
+            <section class="street-panel">
+                <img src="../images/mott st/mott11-teso.png" alt="TESOmini Image">
+                <a href="entry-1.html" class="overlay-text middle-left-2">TESOmini</a>
+            </section>
+
+            <!-- Entry 7, Keki Modern Cakes -->
+            <section class="street-panel">
+                <img src="../images/mott st/mott12-keki.png" alt="Keki Modern Cakes Image">
+                <a href="entry-8.html" class="overlay-text bottom-right">Keki Modern Cakes</a>
+            </section>
+
+            <!-- Entry 8, Chahalo -->
+            <section class="street-panel">
+                <img src="../images/mott st/mott13-chahalo.png" alt="Chahalo Image">
+                <a href="entry-6.html" class="overlay-text middle-right-2">Chahalo</a>
+            </section>
+
+            <!-- Entry 9, senti senti -->
+            <section class="street-panel">
+                <img src="../images/mott st/mott14-fayda.png" alt="senti senti Image">
+                <a href="entry-4.html" class="overlay-text top-left">senti senti</a>
+            </section>
+
+            <!-- Entry 10, Fay Da Bakery -->
+            <section class="street-panel">
+                <img src="../images/mott st/mott15.png" alt="Fay Da Bakery Image">
+                <a href="entry-7.html" class="overlay-text middle-left-3">Fay Da Bakery</a>
+            </section>
+        </div>
+        
+        <div class="scroll-hint">
+            <span class="arrow">➜</span>
+            <span class="arrow">➜</span>
+            <span class="arrow">➜</span>
+            <span class="arrow">➜</span>
+            <span class="arrow">➜</span>
+        </div>
+    </body>
+</html>

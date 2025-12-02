@@ -1,11 +1,12 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-      --color-primary: #D2691E;      
-      --color-secondary: #8B4513;    
+      --color-primary: rgb(148,11,7);      
+      --color-secondary: rgb(33,60,109);    
       --color-accent: #DAA520;       
-      --color-tertiary: #A0522D;
+      --color-tertiary: rgb(227, 221, 219);
       --color-highlight: #CD853F;    
       
   
@@ -31,66 +32,155 @@
 
 /* for scroll */
 
-/* Remove default page spacing */
 body {
   margin: 0;
-  /* background: #111;        dark background (optional) */
   overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100vh;
 }
 
 /* Main horizontal container */
 .street-container {
   display: flex;
   height: 100vh;
-  width: 100vw;
   flex-direction: row;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-behavior: smooth;
-  white-space: nowrap;
   -webkit-overflow-scrolling: touch;
+
+  /* Hide scrollbar */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.street-container::-webkit-scrollbar {
+  display: none;             /* Chrome/Safari */
 }
 
 /* Individual section/panel */
 .street-panel {
   position: relative;
-  min-width: 100vw;    /* Each image fills the screen */
   height: 100vh;
   flex-shrink: 0;
+  overflow: visible;
 }
 
+/* Keep original aspect ratio, fill height */
 .street-panel img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;   /* Preserves aspect ratio while filling */
+  width: auto;
+  height: 100vh;
+  display: block;
+  object-fit: cover;
 }
 
-/* The clickable text overlay */
+/* Clickable overlay text */
 .overlay-text {
   position: absolute;
   transform: translate(-50%, -50%);
-  font-size: clamp(24px, 5vw, 60px); /*responsive text size */
+  font-size: clamp(18px, 4vw, 40px);
   max-width: 60vw;
   font-weight: bold;
-  color: rgb(255, 255, 255);
+  font-family: "Overpass", sans-serif;
   text-decoration: none;
-  transition: background 0.3s;
+  transition: color 0.3s;
+  z-index: 10;
+  white-space: nowrap;
+
+  color: transparent; 
+  -webkit-text-stroke: clamp(1px, 0.2vw, 2.5px) var(--color-tertiary); /* Outline color and thickness */
+  -webkit-text-fill-color: transparent; 
+  cursor: pointer; 
 }
 
 .top-right {
-  top: 10%;
-  right: 40%;
+  top: 30%;
+  right: 50%;
+}
+
+.top-left {
+  top: 30%;
+  left: 1%;
 }
 
 .middle-right {
-  top: 40%;
-  right: 5%;
+  top: 50%;
+  right: 0%;
+}
+
+.middle-right-2 {
+  top: 60%;
+  right: 20%;
+}
+
+.middle-left {
+  top: 45%;
+  left: 30%;
+}
+
+.middle-left-2 {
+  top: 60%;
+  left: 40%;
+}
+
+.middle-left-3 {
+  bottom: 20%;
+  left: 10%;
 }
 
 .bottom-left {
   bottom: 10%;
-  left: 8%;
+  left: 35%;
+}
+
+.bottom-left-2 {
+  bottom: 25%;
+  left: 15%;
+}
+
+.bottom-right {
+  bottom: 10%;
+  left: 90%;
+}
+
+.bottom-middle {
+  bottom: 10%;
+  right: 30%;
 }
 
 .overlay-text:hover {
-  color: rgb(23, 79, 174);
+  color: var(--color-primary); /* Fill text */
+  -webkit-text-stroke: 0px;      /* Remove stroke on hover */
+  -webkit-text-fill-color: var(--color-primary);
+}
+
+/* Scroll indicator */
+.scroll-hint {
+  position: fixed;
+  bottom: 2rem;
+  left: 80%;
+  transform: translateX(-50%);
+  color: var(--color-tertiary);
+  font-size: 2rem;
+  opacity: 0.8;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  animation: fadeIn 1.2s ease forwards;
+  pointer-events: none; /* non-interactive */
+}
+
+.scroll-hint .arrow {
+  animation: bounceArrow 1.2s infinite ease-in-out;
+  padding: 0.5rem 1.25rem;
+}
+
+@keyframes bounceArrow {
+  0%   { transform: translateX(0); opacity: 0.3; }
+  50%  { transform: translateX(6px); opacity: 1; }
+  100% { transform: translateX(0); opacity: 0.3; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, 10px); }
+  to   { opacity: 0.8; transform: translate(-50%, 0); }
 }

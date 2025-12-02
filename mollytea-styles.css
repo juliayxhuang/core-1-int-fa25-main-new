@@ -26,6 +26,7 @@
 
       --font-body: "Rokkitt", serif;
       --font-header: "Gilda Display", serif; 
+      --font-special: "p22-flw-midway-one", sans-serif;
     }
     
     * {
@@ -96,12 +97,14 @@ main.medium-style h1 {
 }
 
 .big-logo {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;  /* center horizontally */
   margin: clamp(8rem, 20vw, 20rem) 0; /* really large top & bottom margins */
   padding: 0 1rem; /* horizontal padding for small screens */
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .big-logo img {
@@ -110,6 +113,28 @@ main.medium-style h1 {
   height: auto;
   display: block;
   border-radius: 0.5rem; /* optional rounded corners */
+}
+
+/* hover effect for address*/
+.big-logo .hover-text {
+  position: absolute;
+  top: 99%;
+  left: 57%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-special);
+  font-size: clamp(0.8rem, 2vw, 1.5rem);
+  color: var(--color-secondary);
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;  /* keep on one line */
+}
+
+.big-logo:hover .hover-text {
+  opacity: 1;
 }
 
 /* blur circle images section */
@@ -188,6 +213,7 @@ main.medium-style h1 {
   bottom: 100%;
   left: 50%;
   transform: translate(-50%, 10px);
+  white-space: nowrap;
 
   color: var(--color-secondary);
   font-weight: 600;
