@@ -20,6 +20,7 @@
    
       --font-heading: "DM Sans", sans-serif;
       --font-body: "Inter", sans-serif;
+      --font-special: "p22-flw-midway-one", sans-serif;
       
       --breakpoint-sm: 640px;
       --breakpoint-md: 768px;
@@ -59,4 +60,72 @@ main {
   padding: 2rem;
   margin: 0 auto;
   max-width: 80vw;
+}
+
+.interactivedescription {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 1rem;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+  text-align: center;
+  position: relative;
+}
+
+/* Large text lines above the image */
+.scroll-text {
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: bold;
+  line-height: 0.6;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  color: var(--color-secondary);
+  
+  /* Start position - visible */
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  
+  /* Fade out as you scroll */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* First line - slightly left */
+.scroll-text div:first-child {
+    font-family: "sloop-script-two", sans-serif;
+    font-size: clamp(4rem, 10vw, 8rem);
+    /* color: rgb(101,25,58); */
+  text-align: center;
+  transform: translateX(-10%);
+}
+
+/* Second line - slightly right */
+.scroll-text div:last-child {
+  text-align: center;
+  transform: translateX(10%);
+  -webkit-text-stroke: 2px white;
+}
+
+.scroll-text .hover-text {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-special);
+  font-size: clamp(0.8rem, 2vw, 1.5rem);
+  color: var(--color-secondary);
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;  /* keep on one line */
+}
+
+.scroll-text:hover .hover-text {
+  opacity: 1;
 }
