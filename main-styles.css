@@ -86,9 +86,9 @@ body {
   z-index: 10;
   white-space: nowrap;
 
-  color: transparent; 
-  -webkit-text-stroke: clamp(1px, 0.2vw, 2.5px) var(--color-tertiary); /* Outline color and thickness */
-  -webkit-text-fill-color: transparent; 
+  color: var(--color-highlight); 
+  -webkit-text-stroke: clamp(0.5px, 0.15vw, 2px) var(--color-tertiary); /* Outline color and thickness */
+  /* -webkit-text-fill-color: transparent;  */
   cursor: pointer; 
 }
 
@@ -148,9 +148,11 @@ body {
 }
 
 .overlay-text:hover {
-  color: var(--color-primary); /* Fill text */
+  color: var(--color-highlight); /* Fill text */
   -webkit-text-stroke: 0px;      /* Remove stroke on hover */
-  -webkit-text-fill-color: var(--color-primary);
+  -webkit-text-fill-color: var(--color-highlight);
+  scale: 120%;
+  transition: transform 0.5s ease-in-out; 
 }
 
 /* Scroll indicator */
@@ -172,6 +174,7 @@ body {
 .scroll-hint .arrow {
   animation: bounceArrow 1.2s infinite ease-in-out;
   padding: 0.5rem 1.25rem;
+  color: var(--color-highlight);
 }
 
 @keyframes bounceArrow {
