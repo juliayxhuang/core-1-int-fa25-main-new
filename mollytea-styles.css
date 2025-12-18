@@ -121,7 +121,7 @@ main.medium-style h1 {
   top: 99%;
   left: 57%;
   transform: translate(-50%, -50%);
-  font-family: var(--font-special);
+  font-family: var(--font-body);
   font-size: clamp(0.8rem, 2vw, 1.5rem);
   color: var(--color-secondary);
   background-color: transparent;
