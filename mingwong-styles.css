@@ -1,12 +1,13 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Nothing+You+Could+Do&family=Overpass:ital,wght@0,100..900;1,100..900&family=Rampart+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Long+Cang&family=Zhi+Mang+Xing&display=swap');
 
 :root {
-      --color-primary: rgb(250,223,100);      
-      --color-secondary: rgb(144,44,23);    
-      --color-accent: #DAA520;       
-      --color-tertiary: rgb(0, 88, 197);
+      --color-primary: rgb(243,207,114);      
+      --color-secondary: rgb(22,75,140);    
+      --color-accent: rgb(145,39,23);       
+      --color-tertiary: rgb(171,119,47);
       --color-highlight: #CD853F;    
   
       --gray-50: #F9FAFB;
@@ -23,6 +24,8 @@
       --breakpoint-sm: 640px;
       --breakpoint-md: 768px;
       --breakpoint-lg: 1024px;
+
+      --font-heading: "Gill Sans", sans-serif;
     }
     
     * {
@@ -83,7 +86,7 @@ main.medium-style p {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: clamp(1rem, 1.2vw + .5rem, 1.25rem);
   margin-bottom: 1.5rem;
-  color: rgb(42,118,2115);
+  color: var(--color-secondary);
 }
 
 main.medium-style h1 {
@@ -118,7 +121,7 @@ main.medium-style h1 {
 
 .two-line-title .line1,
 .two-line-title .line2 {
-  font-family: "Long Cang", cursive;
+  font-family: "Rampart One", sans-serif;
   font-weight: 500;
   color: var(--color-secondary);
   margin: 0;
@@ -140,11 +143,11 @@ main.medium-style h1 {
 
 /* Separate hover effects */
 .two-line-title .line1:hover {
-  color: rgb(10, 70, 180);
+  color: var(--color-tertiary);
 }
 
 .two-line-title .line2:hover {
-  color: rgb(180, 30, 30);
+  color: var(--color-accent);
 }
 
 /* Responsive tweaks */
@@ -199,6 +202,7 @@ main.medium-style h1 {
 /* Title above images, left aligned */
 .secondary-section .section-title {
   font-family: var(--font-heading, sans-serif);
+  color: var(--color-primary);
   font-weight: 700;
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   margin-bottom: 1.25rem;
@@ -210,7 +214,7 @@ main.medium-style h1 {
 .secondary-section .image-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 /* Images styling */
@@ -218,7 +222,7 @@ main.medium-style h1 {
   width: 100%;
   border-radius: 1rem;
   object-fit: cover;
-  height: 200px;
+  height: 240px;
   transition: transform 0.3s ease;
   cursor: pointer;
 }
